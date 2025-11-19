@@ -32,10 +32,10 @@ pip install pyyaml ruamel.yaml
 
 See `test_outputs/` for complete examples generated from IEEE 2030.5:
 
-- **`sep_openapi_complete.yaml`** - Full OpenAPI 3.0 spec with 184 schemas + 121 API paths
-- **`sep_context.jsonld`** - JSON-LD context mapping 748+ terms to semantic URIs
-- **`sep_shacl.jsonld`** - SHACL validation shapes for all types
-- **`sep_openapi_with_context.yaml`** - OpenAPI with embedded JSON-LD context
+- **[`sep_openapi_complete.yaml`](/test_outputs/sep_openapi_complete.yaml)** - Full OpenAPI 3.0 spec with 184 schemas + 121 API paths
+- **[`sep_context.jsonld`](/test_outputs/sep_context.jsonld)** - JSON-LD context mapping 748+ terms to semantic URIs
+- **[`sep_shacl.jsonld`](/test_outputs/sep_shacl.jsonld)** - SHACL validation shapes for all types
+- **[`sep_openapi_with_context.yaml`](/test_outputs/sep_openapi_with_context.yaml)** - OpenAPI with embedded JSON-LD context
 
 ## Usage
 
