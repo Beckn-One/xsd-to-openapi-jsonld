@@ -30,9 +30,9 @@ pip install pyyaml ruamel.yaml
 
 ## Example Outputs
 
-See `test_outputs/` for complete examples generated from IEEE 2030.5:
+See `test_outputs/` for complete examples generated from IEEE 2030.5. These were run on [`sep.xsd`](/test_inputs/sep.xsd) and [`sep_wadl.xml`](/test_inputs/sep_wadl.xml) sourced from https://github.com/epri-dev/IEEE-2030.5-Client. (`sep` means smart energy profile) :
 
-- **[`sep_openapi_complete.yaml`](/test_outputs/sep_openapi_complete.yaml)** - Full OpenAPI 3.0 spec with 184 schemas + 121 API paths
+- **[`sep_openapi_complete.yaml`](/test_outputs/sep_openapi_complete.yaml)** - Full OpenAPI 3.0 spec with 184 schemas + 121 API paths. You can past contents in https://editor-next.swagger.io/ to visualize the spec.
 - **[`sep_context.jsonld`](/test_outputs/sep_context.jsonld)** - JSON-LD context mapping 748+ terms to semantic URIs
 - **[`sep_shacl.jsonld`](/test_outputs/sep_shacl.jsonld)** - SHACL validation shapes for all types
 - **[`sep_openapi_with_context.yaml`](/test_outputs/sep_openapi_with_context.yaml)** - OpenAPI with embedded JSON-LD context
