@@ -25,9 +25,9 @@ class XSDGenerator:
         """Generate a JSON-LD context from the parsed XSD.
         
         Args:
-            include_docs: If True, include rdfs:comment with documentation
-            include_enums: If True, include enum values in the context
-            include_schema: If True, include schema relationships (subClassOf, domain, range, cardinality)
+            include_docs: If True, documentation is included (note: rdfs:comment is not valid in context, so this parameter is kept for API compatibility but doesn't affect context)
+            include_enums: If True, enum values are included (note: @enum is not valid in context, so this parameter is kept for API compatibility but doesn't affect context)
+            include_schema: If True, include properties in the context (RDF relationships are not included in context)
             shacl_file_url: Optional URL to SHACL shapes file (for validator discovery)
         """
         context = {
@@ -44,33 +44,16 @@ class XSDGenerator:
         if shacl_file_url:
             context["@shacl"] = shacl_file_url
         
-        # Track properties by their owning type for domain information
+        # Track properties by their owning type
         properties_by_type = {}
         
         # Add all types to context
+        # Use relative IRIs since @vocab is set - just "@id" string instead of full object
         for type_name, type_info in self.types.items():
-            type_def = {
-                "@id": f"{self.base_uri}{type_name}",
-                "@type": "@id"
-            }
-            
-            # Add inheritance relationship (extension base)
-            if include_schema and type_info.get('base'):
-                base_type = type_info['base'].replace('xs:', '')
-                if base_type in self.types:
-                    type_def["rdfs:subClassOf"] = {
-                        "@id": f"{self.base_uri}{base_type}"
-                    }
-            
-            # Add documentation if available
-            if include_docs and type_info.get('documentation'):
-                type_def["rdfs:comment"] = type_info['documentation']
-            
-            # Add enum values if available
-            if include_enums and type_info.get('enum_values'):
-                type_def["@enum"] = type_info['enum_values']
-            
-            context["@context"][type_name] = type_def
+            # Note: RDF relationships (rdfs:subClassOf, rdfs:comment, @enum, etc.) are not valid in JSON-LD context
+            # They belong in the JSON-LD schema file instead
+            # Using relative IRI shorthand: "@id" since term is in @vocab namespace
+            context["@context"][type_name] = "@id"
             
             # Track properties for this type
             if include_schema:
@@ -80,8 +63,6 @@ class XSDGenerator:
                     properties_by_type[type_name].append({
                         'name': elem['name'],
                         'type': elem.get('type'),
-                        'minOccurs': elem.get('minOccurs', '1'),
-                        'maxOccurs': elem.get('maxOccurs', '1'),
                         'documentation': elem.get('documentation')
                     })
                 # Add attributes as properties
@@ -89,82 +70,28 @@ class XSDGenerator:
                     properties_by_type[type_name].append({
                         'name': attr['name'],
                         'type': attr.get('type'),
-                        'minOccurs': '1' if attr.get('use') == 'required' else '0',
-                        'maxOccurs': '1',
                         'default': attr.get('default'),
                         'documentation': attr.get('documentation')
                     })
         
-        # Add properties with domain and range information
+        # Add properties (without RDF relationships - those belong in schema, not context)
         if include_schema:
             for type_name, properties in properties_by_type.items():
                 for prop in properties:
                     prop_name = prop['name']
                     if prop_name not in context["@context"]:
-                        prop_def = {
-                            "@id": f"{self.base_uri}{prop_name}",
-                            "@type": "@id"
-                        }
-                        
-                        # Add domain (which type this property belongs to)
-                        prop_def["rdfs:domain"] = {
-                            "@id": f"{self.base_uri}{type_name}"
-                        }
-                        
-                        # Add range (what type the property value is)
-                        prop_type = prop.get('type', '').replace('xs:', '')
-                        if prop_type:
-                            if prop_type in self.types:
-                                prop_def["rdfs:range"] = {
-                                    "@id": f"{self.base_uri}{prop_type}"
-                                }
-                            elif prop_type in ['string', 'int', 'long', 'boolean', 'unsignedByte', 
-                                              'unsignedShort', 'unsignedInt', 'unsignedLong', 
-                                              'byte', 'short', 'anyURI', 'hexBinary']:
-                                prop_def["rdfs:range"] = f"xsd:{prop_type}"
-                        
-                        # Add cardinality constraints using OWL properties
-                        min_occurs = prop.get('minOccurs', '1')
-                        max_occurs = prop.get('maxOccurs', '1')
-                        
-                        min_val = int(min_occurs) if min_occurs.isdigit() else 0
-                        if min_val == 0:
-                            prop_def["owl:minCardinality"] = 0
-                        elif min_val > 1:
-                            prop_def["owl:minCardinality"] = min_val
-                        
-                        if max_occurs != '1':
-                            if max_occurs != 'unbounded':
-                                max_val = int(max_occurs) if max_occurs.isdigit() else 1
-                                if max_val > 1:
-                                    prop_def["owl:maxCardinality"] = max_val
-                        
-                        # Add documentation
-                        if include_docs and prop.get('documentation'):
-                            prop_def["rdfs:comment"] = prop['documentation']
-                        
-                        # Add default value if present
-                        if prop.get('default'):
-                            prop_def["@default"] = prop['default']
-                        
-                        context["@context"][prop_name] = prop_def
+                        # Note: RDF relationships (rdfs:domain, rdfs:range, rdfs:comment, OWL cardinality, @default)
+                        # are not valid in JSON-LD context - they belong in the JSON-LD schema file
+                        # Using relative IRI shorthand: "@id" since term is in @vocab namespace
+                        context["@context"][prop_name] = "@id"
         
         # Add all elements to context
         for elem_name, elem_info in self.elements.items():
             if elem_name not in context["@context"]:
-                elem_def = {
-                    "@id": f"{self.base_uri}{elem_name}",
-                    "@type": "@id"
-                }
-                
-                if include_docs:
-                    elem_type = elem_info.get('type')
-                    if elem_type and elem_type in self.types:
-                        type_info = self.types[elem_type]
-                        if type_info.get('documentation'):
-                            elem_def["rdfs:comment"] = type_info['documentation']
-                
-                context["@context"][elem_name] = elem_def
+                # Note: rdfs:comment is not valid in JSON-LD context term definitions
+                # Documentation belongs in the JSON-LD schema file instead
+                # Using relative IRI shorthand: "@id" since term is in @vocab namespace
+                context["@context"][elem_name] = "@id"
         
         # Add common XSD types
         xsd_types = {
@@ -228,8 +155,8 @@ class XSDGenerator:
         
         return schema
     
-    def generate_shacl_shapes(self, include_docs=True):
-        """Generate SHACL shapes for validation."""
+    def generate_shacl_shapes(self, include_docs=True, include_enums=True):
+        """Generate SHACL shapes for validation with RDF ontology information."""
         shacl = {
             "@context": {
                 "@vocab": self.base_uri,
@@ -242,16 +169,20 @@ class XSDGenerator:
             "@graph": []
         }
         
+        # Track properties by their owning type for domain information
+        properties_by_type = {}
+        
         # Generate shapes for each type
         for type_name, type_info in self.types.items():
             if not type_info.get('elements') and not type_info.get('attributes'):
                 continue
             
+            # Use relative IRIs since @vocab is set
             shape = {
-                "@id": f"{self.base_uri}{type_name}Shape",
+                "@id": f"{type_name}Shape",
                 "@type": "sh:NodeShape",
                 "sh:targetClass": {
-                    "@id": f"{self.base_uri}{type_name}"
+                    "@id": type_name
                 }
             }
             
@@ -259,6 +190,7 @@ class XSDGenerator:
                 shape["rdfs:comment"] = type_info['documentation']
             
             properties = []
+            properties_by_type[type_name] = []
             
             # Add element properties
             for elem in type_info.get('elements', []):
@@ -285,6 +217,13 @@ class XSDGenerator:
                 )
                 if prop_shape:
                     properties.append(prop_shape)
+                    properties_by_type[type_name].append({
+                        'name': elem['name'],
+                        'type': elem.get('type'),
+                        'minOccurs': elem.get('minOccurs', '1'),
+                        'maxOccurs': elem.get('maxOccurs', '1'),
+                        'documentation': elem.get('documentation')
+                    })
             
             # Add attribute properties
             for attr in type_info.get('attributes', []):
@@ -309,20 +248,107 @@ class XSDGenerator:
                 )
                 if prop_shape:
                     properties.append(prop_shape)
+                    properties_by_type[type_name].append({
+                        'name': attr['name'],
+                        'type': attr.get('type'),
+                        'minOccurs': min_occurs,
+                        'maxOccurs': '1',
+                        'default': attr.get('default'),
+                        'documentation': attr.get('documentation')
+                    })
             
             if properties:
                 shape["sh:property"] = properties
             
             shacl["@graph"].append(shape)
         
+        # Add RDF ontology information (classes and properties)
+        # This is valid in SHACL files since they use @graph
+        
+        # Add class definitions with inheritance
+        # Use relative IRIs since @vocab is set
+        for type_name, type_info in self.types.items():
+            class_node = {
+                "@id": type_name,
+                "@type": "rdfs:Class"
+            }
+            
+            # Add documentation
+            if include_docs and type_info.get('documentation'):
+                class_node["rdfs:comment"] = type_info['documentation']
+            
+            # Add inheritance (rdfs:subClassOf)
+            if type_info.get('base'):
+                base_type = type_info['base'].replace('xs:', '')
+                if base_type in self.types:
+                    class_node["rdfs:subClassOf"] = {
+                        "@id": base_type
+                    }
+            
+            # Add enum values
+            if include_enums and type_info.get('enum_values'):
+                class_node["@enum"] = type_info['enum_values']
+            
+            shacl["@graph"].append(class_node)
+        
+        # Add property definitions with domain and range
+        # Use relative IRIs since @vocab is set
+        for type_name, properties in properties_by_type.items():
+            for prop in properties:
+                prop_name = prop['name']
+                prop_node = {
+                    "@id": prop_name,
+                    "@type": "rdf:Property"
+                }
+                
+                # Add domain (which type this property belongs to)
+                prop_node["rdfs:domain"] = {
+                    "@id": type_name
+                }
+                
+                # Add range (what type the property value is)
+                prop_type = prop.get('type', '').replace('xs:', '')
+                if prop_type:
+                    if prop_type in self.types:
+                        prop_node["rdfs:range"] = {
+                            "@id": prop_type
+                        }
+                    elif prop_type in ['string', 'int', 'long', 'boolean', 'unsignedByte', 
+                                      'unsignedShort', 'unsignedInt', 'unsignedLong', 
+                                      'byte', 'short', 'anyURI', 'hexBinary']:
+                        prop_node["rdfs:range"] = f"xsd:{prop_type}"
+                
+                # Add documentation
+                if include_docs and prop.get('documentation'):
+                    prop_node["rdfs:comment"] = prop['documentation']
+                
+                # Add cardinality constraints using OWL properties
+                min_occurs = prop.get('minOccurs', '1')
+                max_occurs = prop.get('maxOccurs', '1')
+                
+                min_val = int(min_occurs) if min_occurs.isdigit() else 0
+                if min_val == 0:
+                    prop_node["owl:minCardinality"] = 0
+                elif min_val > 1:
+                    prop_node["owl:minCardinality"] = min_val
+                
+                if max_occurs != '1':
+                    if max_occurs != 'unbounded':
+                        max_val = int(max_occurs) if max_occurs.isdigit() else 1
+                        if max_val > 1:
+                            prop_node["owl:maxCardinality"] = max_val
+                
+                shacl["@graph"].append(prop_node)
+        
         return shacl
     
     def _create_property_shape(self, prop_name, prop_type, min_occurs, max_occurs, 
                               documentation=None, default_value=None, enum_values=None, enum_ranges=None):
         """Create a SHACL property shape."""
+        # Use relative IRI since @vocab is set
         prop_shape = {
             "sh:path": {
-                "@id": f"{self.base_uri}{prop_name}"
+                "@id": prop_name
             }
         }
         
@@ -416,8 +442,9 @@ class XSDGenerator:
                 has_attributes = bool(type_info.get('attributes'))
                 
                 if has_elements or has_attributes:
+                    # Use relative IRI since @vocab is set
                     prop_shape["sh:node"] = {
-                        "@id": f"{self.base_uri}{prop_type_clean}Shape"
+                        "@id": f"{prop_type_clean}Shape"
                     }
                 else:
                     base_type = type_info.get('base') or type_info.get('restriction')

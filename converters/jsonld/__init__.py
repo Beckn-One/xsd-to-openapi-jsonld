@@ -34,7 +34,7 @@ def generate_jsonld_context(xsd_file, output_file=None, include_docs=True,
     if output_file:
         import json
         with open(output_file, 'w') as f:
-            json.dump(context, f, indent=2)
+            json.dump(context, f, separators=(',', ':'))
         return None
     
     return context
@@ -63,32 +63,33 @@ def generate_jsonld_schema(xsd_file, output_file=None, include_docs=True, includ
     if output_file:
         import json
         with open(output_file, 'w') as f:
-            json.dump(schema, f, indent=2)
+            json.dump(schema, f, separators=(',', ':'))
         return None
     
     return schema
 
 
-def generate_shacl_shapes(xsd_file, output_file=None, include_docs=True):
-    """Generate SHACL shapes from XSD file.
+def generate_shacl_shapes(xsd_file, output_file=None, include_docs=True, include_enums=True):
+    """Generate SHACL shapes from XSD file with RDF ontology information.
     
     Args:
         xsd_file: Path to XSD file
         output_file: Optional output file path (if None, returns dict)
         include_docs: Include documentation/descriptions
+        include_enums: Include enum values in RDF ontology
         
     Returns:
-        dict: SHACL shapes or None if output_file is provided
+        dict: SHACL shapes with RDF ontology or None if output_file is provided
     """
     parser = XSDParser()
     parser.parse(xsd_file)
     generator = XSDGenerator(parser)
-    shacl = generator.generate_shacl_shapes(include_docs=include_docs)
+    shacl = generator.generate_shacl_shapes(include_docs=include_docs, include_enums=include_enums)
     
     if output_file:
         import json
         with open(output_file, 'w') as f:
-            json.dump(shacl, f, indent=2)
+            json.dump(shacl, f, separators=(',', ':'))
         return None
     
     return shacl

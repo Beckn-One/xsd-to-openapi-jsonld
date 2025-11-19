@@ -64,7 +64,7 @@ python3 cli.py openapi \
     --api-title "IEEE 2030.5 API" \
     --api-version "1.0.0"
 
-# Example 7: Generate Context with SHACL link
+# Example 7: Generate Context with SHACL link, so that shacl grammer can be used to validate the data
 echo -e "\n${GREEN}Example 7: Generating JSON-LD Context with SHACL link${NC}"
 python3 cli.py jsonld-context \
     "$INPUT_DIR/sep.xsd" \
@@ -75,7 +75,7 @@ python3 cli.py jsonld-context \
 echo -e "\n${GREEN}Example 8: Generating OpenAPI with embedded JSON-LD context${NC}"
 python3 cli.py openapi \
     "$INPUT_DIR/sep.xsd" \
-    "$OUTPUT_DIR/sep_openapi_with_context.yaml" \
+    "$OUTPUT_DIR/sep_openapi_with_embedded_context.yaml" \
     --wadl-file "$INPUT_DIR/sep_wadl.xml" \
     --api-title "IEEE 2030.5 API" \
     --api-version "1.0.0"
@@ -84,11 +84,11 @@ python3 cli.py openapi \
 echo -e "\n${GREEN}Example 9: Generating OpenAPI with context (embedded + separate file)${NC}"
 python3 cli.py openapi \
     "$INPUT_DIR/sep.xsd" \
-    "$OUTPUT_DIR/sep_openapi_context_both.yaml" \
+    "$OUTPUT_DIR/sep_openapi_with_linked_context.yaml" \
     --wadl-file "$INPUT_DIR/sep_wadl.xml" \
     --api-title "IEEE 2030.5 API" \
     --api-version "1.0.0" \
-    --context-output-file "$OUTPUT_DIR/sep_context_from_openapi.jsonld"
+    --context-output-file "$OUTPUT_DIR/sep_context_linked_to_openapi.jsonld"
 
 echo -e "\n${BLUE}=== All conversions complete! ===${NC}"
 echo -e "${YELLOW}Output files are in: $OUTPUT_DIR${NC}\n"
