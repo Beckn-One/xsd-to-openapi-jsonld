@@ -1,0 +1,2938 @@
+{
+  "@context": {
+    "@vocab": "https://schemas.ieee.org/2030.5/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#"
+  },
+  "@graph": [
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DeviceCapability",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Returned by the URI provided by DNS-SD, to allow clients to find the URIs to the resources in which they are interested.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/FunctionSetAssignmentsBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AbstractDevice",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The EndDevice providing the resources available within the DeviceCapabilities.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DeviceStatus",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Status of device",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EndDevice",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Asset container that performs one or more end device functions. Contains information about individual devices in the network.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/AbstractDevice"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EndDeviceList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold EndDevice objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Registration",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Registration represents an authorization to access the resources on a host.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SelfDevice",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The EndDevice providing the resources available within the DeviceCapabilities.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/AbstractDevice"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Temperature",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specification of a temperature."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FunctionSetAssignmentsBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Defines a collection of function set instances that are to be used by one or more devices as indicated by the EndDevice object(s) of the server.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FunctionSetAssignments",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Provides an identifiable, subscribable collection of resources for a particular device to consume.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/FunctionSetAssignmentsBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FunctionSetAssignmentsList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold FunctionSetAssignments objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Condition",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Indicates a condition that must be satisfied for the Notification to be triggered."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SubscriptionBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Holds the information related to a client subscription to receive updates to a resource automatically. The actual resources may be passed in the Notification by specifying a specific xsi:type for the Resource and passing the full representation.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Subscription",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Holds the information related to a client subscription to receive updates to a resource automatically.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscriptionBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SubscriptionList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold Subscription objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Notification",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Holds the information related to a client subscription to receive updates to a resource automatically. The actual resources may be passed in the Notification by specifying a specific xsi:type for the Resource and passing the full representation.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscriptionBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/NotificationList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold Notification objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERControlResponse",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A response to a DERControl",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Response"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowReservationResponseResponse",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A response to a FlowReservationResponse",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Response"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AppliedTargetReduction",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies the value of the TargetReduction applied by the device."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DrResponse",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A response to a Demand Response Load Control (EndDeviceControl) message.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Response"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PriceResponse",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A response related to a price message.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Response"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Response",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The Response object is the generic response data repository which is extended for specific function sets.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ResponseList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold Response objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ResponseSet",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A container for a ResponseList.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ResponseSetList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold ResponseSet objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TextResponse",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A response to a text message",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Response"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Time",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains the representation of time, constantly updated.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DeviceInformation",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains identification and other information about the device that changes very infrequently, typically only when updates are applied, if ever.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DRLCCapabilities",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains information about the static capabilities of the device, to allow service providers to know what types of functions are supported, what the normal operating ranges and limits are, and other similar information, in order to provide better suggestions of applicable programs to receive the maximum benefit."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SupportedLocale",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies a locale that is supported",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SupportedLocaleList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold SupportedLocale objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PowerStatus",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains the status of the device's power sources",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PowerSourceType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - none\n1 - mains \n2 - battery\n3 - local generation\n4 - emergency \n5 - unknown\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "none",
+        "1": "mains",
+        "2": "battery",
+        "3": "local generation",
+        "4": "emergency",
+        "5": "unknown"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PEVInfo",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains attributes that can be exposed by PEVs and other devices that have charging requirements."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IEEE_802_15_4",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains 802.15.4 link layer specific attributes."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IPAddr",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An Internet Protocol address object.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IPAddrList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "List of IPAddr instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IPInterface",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specific IPInterface resource.  This resource may be thought of as network status information for a specific network (IP) layer interface.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IPInterfaceList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "List of IPInterface instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LLInterface",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A link-layer interface object.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LLInterfaceList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "List of LLInterface instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/loWPAN",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains information specific to 6LoWPAN."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Neighbor",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains 802.15.4 link layer specific attributes.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/NeighborList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "List of 15.4 neighbors.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RPLInstance",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specific RPLInstance resource.  This resource may be thought of as network status information for a specific RPL instance associated with IPInterface.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RPLInstanceList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "List of RPLInstances associated with the IPinterface.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RPLSourceRoutes",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A RPL source routes object.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RPLSourceRoutesList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "List or RPL source routes if the hosting device is the DODAGroot",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LogEvent",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A time stamped instance of a significant event detected by the device.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LogEventList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold LogEvent objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Configuration",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "This resource contains various settings to control the operation of the device",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PowerConfiguration",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains configuration related to the device's power sources"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PriceResponseCfg",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Configuration data that specifies how price responsive devices SHOULD respond to price changes while acting upon a given RateComponent.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PriceResponseCfgList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold PriceResponseCfg objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TimeConfiguration",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains attributes related to the configuration of the time service."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/File",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "This resource contains various meta-data describing a file's characteristics.  The meta-data provides general file information and also is used to support filtered queries of file lists",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FileList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold File objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FileStatus",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "This object provides status of device file load and activation operations.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LoadShedAvailabilityList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold LoadShedAvailability objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ApplianceLoadReduction",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The ApplianceLoadReduction object is used by a Demand Response service provider to provide signals for ENERGY STAR compliant appliances. See the definition of ApplianceLoadReductionType for more information."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DemandResponseProgram",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Demand response program.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DemandResponseProgramList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold DemandResponseProgram objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DutyCycle",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Duty cycle control is a device specific issue and is managed by the device.  The duty cycle of the device under control should span the shortest practical time period in accordance with the nature of the device under control and the intent of the request for demand reduction.  The default factory setting SHOULD be three minutes for each 10% of duty cycle.  This indicates that the default time period over which a duty cycle is applied is 30 minutes, meaning a 10% duty cycle would cause a device to be ON for 3 minutes.   The \u201coff state\u201d SHALL precede the \u201con state\u201d."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EndDeviceControl",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Instructs an EndDevice to perform a specified action.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/RandomizableEvent"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EndDeviceControlList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold EndDeviceControl objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LoadShedAvailability",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Indicates current consumption status and ability to shed load.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Offset",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "If a temperature offset is sent that causes the heating or cooling temperature set point to exceed the limit boundaries that are programmed into the device, the device SHALL respond by setting the temperature at the limit.\nIf an EDC is being targeted at multiple devices or to a device that controls multiple devices (e.g., EMS), it can provide multiple Offset types within one EDC. For events with multiple Offset types, a client SHALL select the Offset that best fits their operating function. \nAlternatively, an event with a single Offset type can be targeted at an EMS in order to request a percentage load reduction on the average energy usage of the entire premise. An EMS SHOULD use the Metering function set to determine the initial load in the premise, reduce energy consumption by controlling devices at its disposal, and at the conclusion of the event, once again use the Metering function set to determine if the desired load reduction was achieved."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SetPoint",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The SetPoint object is used to apply specific temperature set points to a temperature control device. The values of the heatingSetpoint and coolingSetpoint attributes SHALL be calculated as follows:\nCooling/Heating Temperature Set Point / 100 = temperature in degrees Celsius where -273.15\u00b0C &lt;= temperature &lt;= 327.67\u00b0C, corresponding to a Cooling and/or Heating Temperature Set Point. The maximum resolution this format allows is 0.01\u00b0C. \nThe field not present in a Response indicates that this field has not been used by the end device. \nIf a temperature is sent that exceeds the temperature limit boundaries that are programmed into the device, the device SHALL respond by setting the temperature at the limit."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TargetReduction",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The TargetReduction object is used by a Demand Response service provider to provide a RECOMMENDED threshold that a device/premises should maintain its consumption below. For example, a service provider can provide a RECOMMENDED threshold of some kWh for a 3-hour event. This means that the device/premises would maintain its consumption below the specified limit for the specified period."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MeterReading",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Set of values obtained from the meter.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/MeterReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MeterReadingList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold MeterReading objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Reading",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specific value measured by a meter or other asset.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold Reading objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingSet",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A set of Readings of the ReadingType indicated by the parent MeterReading.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ReadingSetBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingSetList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold ReadingSet objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Type of data conveyed by a specific Reading. See IEC 61968 Part 9 Annex C for full definitions of these values.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UsagePoint",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Logical point on a network at which consumption or production is either physically measured (e.g. metered) or estimated (e.g. unmetered street lights).",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UsagePointBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UsagePointList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold UsagePoint objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ConsumptionTariffInterval",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "One of a sequence of thresholds defined in terms of consumption quantity of a service such as electricity, water, gas, etc. It defines the steps or blocks in a step tariff structure, where startValue simultaneously defines the entry value of this step and the closing value of the previous step. Where consumption is greater than startValue, it falls within this block and where consumption is less than or equal to startValue, it falls within one of the previous blocks.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ConsumptionTariffIntervalList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold ConsumptionTariffInterval objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CostKindType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - Carbon Dioxide emissions, in grams per unit\n1 - Sulfur Dioxide emissions, in grams per unit\n2 - Nitrogen Oxides emissions, in grams per unit\n3 - Renewable generation, as a percentage of overall generation\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Carbon Dioxide emissions, in grams per unit",
+        "1": "Sulfur Dioxide emissions, in grams per unit",
+        "2": "Nitrogen Oxides emissions, in grams per unit",
+        "3": "Renewable generation, as a percentage of overall generation"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EnvironmentalCost",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Provides alternative or secondary price information for the relevant RateComponent. Supports jurisdictions that seek to convey the environmental price per unit of the specified commodity not expressed in currency.\n\nImplementers and consumers can use this attribute to prioritize operations of their HAN devices (e.g., PEV charging during times of high availability of renewable electricity resources)."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RateComponent",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies the applicable charges for a single component of the rate, which could be generation price or consumption price, for example.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RateComponentList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold RateComponent objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TariffProfile",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A schedule of charges; structure that allows the definition of tariff structures such as step (block) and time of use (tier) when used in conjunction with TimeTariffInterval and ConsumptionTariffInterval.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TariffProfileList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold TariffProfile objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TimeTariffInterval",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Describes the time-differentiated portion of the RateComponent, if applicable, and provides the ability to specify multiple time intervals, each with its own consumption-based components and other attributes.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/RandomizableEvent"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TimeTariffIntervalList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold TimeTariffInterval objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MessagingProgram",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Provides a container for collections of text messages.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableIdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MessagingProgramList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold MessagingProgram objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PriorityType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Indicates the priority of a message:\n0 - Low\n1 - Normal\n2 - High\n3 - Critical\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Low",
+        "1": "Normal",
+        "2": "High",
+        "3": "Critical"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TextMessage",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Text message such as a notification.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Event"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TextMessageList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold TextMessage objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingPeriod",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A Billing Period relates to the period of time on which a customer is billed.  As an example the billing period interval for a particular customer might be 31 days starting on July 1, 2011. The start date and interval can change on each billing period. There may also be multiple billing periods related to a customer agreement to support different tariff structures.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingPeriodList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold BillingPeriod objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingMeterReadingBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains historical, target, and projection readings of various types, possibly associated with charges.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/MeterReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingReading",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Data captured at regular intervals of time. Interval data could be captured as incremental data, absolute data, or relative data. The source for the data is usually a tariff quantity or an engineering quantity. Data is typically captured in time-tagged, uniform, fixed-length intervals of 5 min, 10 min, 15 min, 30 min, or 60 min. However, consumption aggregations can also be represented with this class.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingReadingList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold BillingReading objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingReadingSet",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Time sequence of readings of the same reading type.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ReadingSetBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingReadingSetList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold BillingReadingSet objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Charge",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Charges contain charges on a customer bill.  These could be items like taxes, levies, surcharges, rebates, or others.  This is meant to allow the HAN device to retrieve enough information to be able to reconstruct an estimate of what the total bill would look like. \n\nProviders can provide line item billing, including multiple charge kinds (e.g. taxes, surcharges) at whatever granularity desired, using as many Charges as desired during a billing period. There can also be any number of Charges associated with different ReadingTypes to distinguish between TOU tiers, consumption blocks, or demand charges."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ChargeKind",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Kind of charge.\n0 - Consumption Charge\n1 - Rebate \n2 - Auxiliary Charge\n3 - Demand Charge\n4 - Tax Charge",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Consumption Charge",
+        "1": "Rebate",
+        "2": "Auxiliary Charge",
+        "3": "Demand Charge",
+        "4": "Tax Charge"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CustomerAccount",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Assignment of a group of products and services purchased by the Customer through a CustomerAgreement, used as a mechanism for customer billing and payment. It contains common information from the various types of CustomerAgreements to create billings (invoices) for a Customer and receive payment.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CustomerAccountList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold CustomerAccount objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CustomerAgreement",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Agreement between the customer and the service supplier to pay for service at a specific service location. It records certain billing information about the type of service provided at the service location and is used during charge creation to determine the type of service.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CustomerAgreementList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold CustomerAgreement objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HistoricalReading",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "To be used to present readings that have been processed and possibly corrected (as allowed, due to missing or incorrect data) by backend systems. This includes quality codes valid, verified, estimated, and derived / corrected.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/BillingMeterReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HistoricalReadingList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold HistoricalReading objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ProjectionReading",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains values that forecast a future reading for the time or interval specified.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/BillingMeterReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ProjectionReadingList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold ProjectionReading objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TargetReading",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains readings that specify a target or goal, such as a consumption target, to which billing incentives or other contractual ramifications may be associated.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/BillingMeterReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TargetReadingList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold TargetReading objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ServiceSupplier",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Organisation that provides services to Customers.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ServiceSupplierList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold ServiceSupplier objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AccountBalance",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "AccountBalance contains the regular credit and emergency credit balance for this given service or commodity prepay instance. It may also contain status information concerning the balance data.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AccountingUnit",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unit for accounting; use either 'energyUnit' or 'currencyUnit' to specify the unit for 'value'."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CreditRegister",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "CreditRegister instances define a credit-modifying transaction. Typically this would be a credit-adding transaction, but may be a subtracting transaction (perhaps in response to an out-of-band debt signal).",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CreditRegisterList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold CreditRegister objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Prepayment",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Prepayment (inherited from CIM SDPAccountingFunction)",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PrepaymentList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold Prepayment objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PrepayModeType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - Central Wallet\n1 - ESI\n2 - Local\n3 - Credit\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Central Wallet",
+        "1": "ESI",
+        "2": "Local",
+        "3": "Credit"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PrepayOperationStatus",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "PrepayOperationStatus describes the status of the service or commodity being conditionally controlled by the Prepayment function set.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ServiceChange",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies a change to the service status."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SupplyInterruptionOverride",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SupplyInterruptionOverride: There may be periods of time when social, regulatory or other concerns mean that service should not be interrupted, even when available credit has been exhausted. Each Prepayment instance links to a List of SupplyInterruptionOverride instances. Each SupplyInterruptionOverride defines a contiguous period of time during which supply SHALL NOT be interrupted.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SupplyInterruptionOverrideList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold SupplyInterruptionOverride objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CreditStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - Credit Ok\n1 - Credit Low\n2 - Credit Exhausted\n3 - Credit Negative\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Credit Ok",
+        "1": "Credit Low",
+        "2": "Credit Exhausted",
+        "3": "Credit Negative"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CreditTypeType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - Regular\n1 - Emergency\n2 - Regular, then Emergency\n3 - Emergency, then Regular\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Regular",
+        "1": "Emergency",
+        "2": "Regular, then Emergency",
+        "3": "Emergency, then Regular"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CreditTypeChange",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies a change to the credit type."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ServiceStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - Connected\n1 - Disconnected\n2 - Armed for Connect\n3 - Armed for Disconnect\n4 - No Contactor\n5 - Load Limited\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Connected",
+        "1": "Disconnected",
+        "2": "Armed for Connect",
+        "3": "Armed for Disconnect",
+        "4": "No Contactor",
+        "5": "Load Limited"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RequestStatus",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The RequestStatus object is used to indicate the current status of a Flow Reservation Request."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowReservationRequest",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Used to request flow transactions. Client EndDevices submit a request for charging or discharging from the server. The server creates an associated FlowReservationResponse containing the charging parameters and interval to provide a lower aggregated demand at the premises, or within a larger part of the distribution system.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowReservationRequestList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold FlowReservationRequest objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowReservationResponse",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The server may modify the charging or discharging parameters and interval to provide a lower aggregated demand at the premises, or within a larger part of the distribution system.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Event"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowReservationResponseList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold FlowReservationResponse objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DefaultDERControl",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains control mode information to be used if no active DERControl is found.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableIdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FreqDroopType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Type for Frequency-Droop (Frequency-Watt) operation."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DER",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains links to DER resources.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold DER objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERSettings",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Distributed energy resource settings",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - Not applicable / Unknown\n1 - Virtual or mixed DER\n2 - Reciprocating engine\n3 - Fuel cell\n4 - Photovoltaic system\n5 - Combined heat and power\n6 - Other generation system\n80 - Other storage system\n81 - Electric vehicle\n82 - EVSE\n83 - Combined PV and storage\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not applicable / Unknown",
+        "1": "Virtual or mixed DER",
+        "2": "Reciprocating engine",
+        "3": "Fuel cell",
+        "4": "Photovoltaic system",
+        "5": "Combined heat and power",
+        "6": "Other generation system",
+        "80": "Other storage system",
+        "81": "Electric vehicle",
+        "82": "EVSE",
+        "83": "Combined PV and storage"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERAvailability",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Indicates current reserve generation status",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERCapability",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Distributed energy resource type and nameplate ratings.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERControlBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Distributed Energy Resource (DER) control values."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERControl",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Distributed Energy Resource (DER) time/event-based control.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/RandomizableEvent"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERControlList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold DERControl objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERControlType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Control modes supported by the DER.  Bit positions SHALL be defined as follows:\n0 - Charge mode\n1 - Discharge mode\n2 - opModConnect (Connect / Disconnect - implies galvanic isolation)\n3 - opModEnergize (Energize / De-Energize)\n4 - opModFixedPFAbsorbW (Fixed Power Factor Setpoint when absorbing active power)\n5 - opModFixedPFInjectW (Fixed Power Factor Setpoint when injecting active power)\n6 - opModFixedVar (Reactive Power Setpoint)\n7 - opModFixedW (Charge / Discharge Setpoint)\n8 - opModFreqDroop (Frequency-Watt Parameterized Mode)\n9 - opModFreqWatt (Frequency-Watt Curve Mode)\n10 - opModHFRTMayTrip (High Frequency Ride Through, May Trip Mode)\n11 - opModHFRTMustTrip (High Frequency Ride Through, Must Trip Mode)\n12 - opModHVRTMayTrip (High Voltage Ride Through, May Trip Mode)\n13 - opModHVRTMomentaryCessation (High Voltage Ride Through, Momentary Cessation Mode)\n14 - opModHVRTMustTrip (High Voltage Ride Through, Must Trip Mode)\n15 - opModLFRTMayTrip (Low Frequency Ride Through, May Trip Mode)\n16 - opModLFRTMustTrip (Low Frequency Ride Through, Must Trip Mode)\n17 - opModLVRTMayTrip (Low Voltage Ride Through, May Trip Mode)\n18 - opModLVRTMomentaryCessation (Low Voltage Ride Through, Momentary Cessation Mode)\n19 - opModLVRTMustTrip (Low Voltage Ride Through, Must Trip Mode)\n20 - opModMaxLimW (Maximum Active Power)\n21 - opModTargetVar (Target Reactive Power)\n22 - opModTargetW (Target Active Power)\n23 - opModVoltVar (Volt-Var Mode)\n24 - opModVoltWatt (Volt-Watt Mode)\n25 - opModWattPF (Watt-PowerFactor Mode)\n26 - opModWattVar (Watt-Var Mode)\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/HexBinary32"
+      },
+      "@enum": {
+        "0": "Charge mode",
+        "1": "Discharge mode",
+        "2": "opModConnect (Connect / Disconnect - implies galvanic isolation)",
+        "3": "opModEnergize (Energize / De-Energize)",
+        "4": "opModFixedPFAbsorbW (Fixed Power Factor Setpoint when absorbing active power)",
+        "5": "opModFixedPFInjectW (Fixed Power Factor Setpoint when injecting active power)",
+        "6": "opModFixedVar (Reactive Power Setpoint)",
+        "7": "opModFixedW (Charge / Discharge Setpoint)",
+        "8": "opModFreqDroop (Frequency-Watt Parameterized Mode)",
+        "9": "opModFreqWatt (Frequency-Watt Curve Mode)",
+        "10": "opModHFRTMayTrip (High Frequency Ride Through, May Trip Mode)",
+        "11": "opModHFRTMustTrip (High Frequency Ride Through, Must Trip Mode)",
+        "12": "opModHVRTMayTrip (High Voltage Ride Through, May Trip Mode)",
+        "13": "opModHVRTMomentaryCessation (High Voltage Ride Through, Momentary Cessation Mode)",
+        "14": "opModHVRTMustTrip (High Voltage Ride Through, Must Trip Mode)",
+        "15": "opModLFRTMayTrip (Low Frequency Ride Through, May Trip Mode)",
+        "16": "opModLFRTMustTrip (Low Frequency Ride Through, Must Trip Mode)",
+        "17": "opModLVRTMayTrip (Low Voltage Ride Through, May Trip Mode)",
+        "18": "opModLVRTMomentaryCessation (Low Voltage Ride Through, Momentary Cessation Mode)",
+        "19": "opModLVRTMustTrip (Low Voltage Ride Through, Must Trip Mode)",
+        "20": "opModMaxLimW (Maximum Active Power)",
+        "21": "opModTargetVar (Target Reactive Power)",
+        "22": "opModTargetW (Target Active Power)",
+        "23": "opModVoltVar (Volt-Var Mode)",
+        "24": "opModVoltWatt (Volt-Watt Mode)",
+        "25": "opModWattPF (Watt-PowerFactor Mode)",
+        "26": "opModWattVar (Watt-Var Mode)"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERCurve",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER related curves such as Volt-Var mode curves. Relationship between an independent variable (X-axis) and a dependent variable (Y-axis).",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CurrentDERProgramLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DERProgram.  If present, this is the DERProgram containing the currently active DERControl.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERCurveList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold DERCurve objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CurveData",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Data point values for defining a curve or schedule"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERCurveType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - opModFreqWatt (Frequency-Watt Curve Mode)\n1 - opModHFRTMayTrip (High Frequency Ride Through, May Trip Mode)\n2 - opModHFRTMustTrip (High Frequency Ride Through, Must Trip Mode)\n3 - opModHVRTMayTrip (High Voltage Ride Through, May Trip Mode)\n4 - opModHVRTMomentaryCessation (High Voltage Ride Through, Momentary Cessation Mode)\n5 - opModHVRTMustTrip (High Voltage Ride Through, Must Trip Mode)\n6 - opModLFRTMayTrip (Low Frequency Ride Through, May Trip Mode)\n7 - opModLFRTMustTrip (Low Frequency Ride Through, Must Trip Mode)\n8 - opModLVRTMayTrip (Low Voltage Ride Through, May Trip Mode)\n9 - opModLVRTMomentaryCessation (Low Voltage Ride Through, Momentary Cessation Mode)\n10 - opModLVRTMustTrip (Low Voltage Ride Through, Must Trip Mode)\n11 - opModVoltVar (Volt-Var Mode)\n12 - opModVoltWatt (Volt-Watt Mode)\n13 - opModWattPF (Watt-PowerFactor Mode)\n14 - opModWattVar (Watt-Var Mode)\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "opModFreqWatt (Frequency-Watt Curve Mode)",
+        "1": "opModHFRTMayTrip (High Frequency Ride Through, May Trip Mode)",
+        "2": "opModHFRTMustTrip (High Frequency Ride Through, Must Trip Mode)",
+        "3": "opModHVRTMayTrip (High Voltage Ride Through, May Trip Mode)",
+        "4": "opModHVRTMomentaryCessation (High Voltage Ride Through, Momentary Cessation Mode)",
+        "5": "opModHVRTMustTrip (High Voltage Ride Through, Must Trip Mode)",
+        "6": "opModLFRTMayTrip (Low Frequency Ride Through, May Trip Mode)",
+        "7": "opModLFRTMustTrip (Low Frequency Ride Through, Must Trip Mode)",
+        "8": "opModLVRTMayTrip (Low Voltage Ride Through, May Trip Mode)",
+        "9": "opModLVRTMomentaryCessation (Low Voltage Ride Through, Momentary Cessation Mode)",
+        "10": "opModLVRTMustTrip (Low Voltage Ride Through, Must Trip Mode)",
+        "11": "opModVoltVar (Volt-Var Mode)",
+        "12": "opModVoltWatt (Volt-Watt Mode)",
+        "13": "opModWattPF (Watt-PowerFactor Mode)",
+        "14": "opModWattVar (Watt-Var Mode)"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERProgram",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Distributed Energy Resource program.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableIdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERProgramList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List element to hold DERProgram objects.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableList"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERStatus",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER status information.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERUnitRefType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies context for interpreting percent values:\n0 - N/A\n1 - %setMaxW\n2 - %setMaxVar\n3 - %statVarAvail\n4 - %setEffectiveV\n5 - %setMaxChargeRateW\n6 - %setMaxDischargeRateW\n7 - %statWAvail\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "N/A",
+        "1": "%setMaxW",
+        "2": "%setMaxVar",
+        "3": "%statVarAvail",
+        "4": "%setEffectiveV",
+        "5": "%setMaxChargeRateW",
+        "6": "%setMaxDischargeRateW",
+        "7": "%statWAvail"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CurrentRMS",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Average flow of charge through a conductor."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FixedPointType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Abstract type for specifying a fixed-point value without a given unit of measure."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UnsignedFixedPointType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Abstract type for specifying an unsigned fixed-point value without a given unit of measure."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActivePower",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The active (real) power P (in W) is the product of root-mean-square (RMS) voltage, RMS current, and cos(theta) where theta is the phase angle of current relative to voltage.  It is the primary measure of the rate of flow of energy."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AmpereHour",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Available electric charge"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ApparentPower",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The apparent power S (in VA) is the product of root mean square (RMS) voltage and RMS current."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReactivePower",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The reactive power Q (in var) is the product of root mean square (RMS) voltage, RMS current, and sin(theta) where theta is the phase angle of current relative to voltage."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReactiveSusceptance",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Reactive susceptance"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PowerFactor",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies a setpoint for Displacement Power Factor, the ratio between apparent and active powers at the fundamental frequency (e.g. 60 Hz)."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PowerFactorWithExcitation",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies a setpoint for Displacement Power Factor, the ratio between apparent and active powers at the fundamental frequency (e.g. 60 Hz) and includes an excitation flag."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FixedVar",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies a signed setpoint for reactive power."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/WattHour",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Active (real) energy"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/VoltageRMS",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Average electric potential difference between two points."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ConnectStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER ConnectStatus value (bitmap):\n0 - Connected\n1 - Available\n2 - Operating\n3 - Test\n4 - Fault / Error\nAll other values reserved.",
+      "@enum": {
+        "0": "Connected",
+        "1": "Available",
+        "2": "Operating",
+        "3": "Test",
+        "4": "Fault / Error"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/InverterStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER InverterStatus value:\n0 - N/A\n1 - off\n2 - sleeping (auto-shutdown) or DER is at low output power/voltage\n3 - starting up or ON but not producing power\n4 - tracking MPPT power point\n5 - forced power reduction/derating\n6 - shutting down\n7 - one or more faults exist\n8 - standby (service on unit) - DER may be at high output voltage/power\n9 - test mode\n10 - as defined in manufacturer status\nAll other values reserved.",
+      "@enum": {
+        "0": "N/A",
+        "1": "off",
+        "2": "sleeping (auto-shutdown) or DER is at low output power/voltage",
+        "3": "starting up or ON but not producing power",
+        "4": "tracking MPPT power point",
+        "5": "forced power reduction/derating",
+        "6": "shutting down",
+        "7": "one or more faults exist",
+        "8": "standby (service on unit) - DER may be at high output voltage/power",
+        "9": "test mode",
+        "10": "as defined in manufacturer status"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LocalControlModeStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER LocalControlModeStatus/value:\n0 \u2013 local control\n1 \u2013 remote control\nAll other values reserved."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ManufacturerStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER ManufacturerStatus/value: String data type"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/OperationalModeStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER OperationalModeStatus value:\n0 - Not applicable / Unknown\n1 - Off\n2 - Operational mode\n3 - Test mode\nAll other values reserved.",
+      "@enum": {
+        "0": "Not applicable / Unknown",
+        "1": "Off",
+        "2": "Operational mode",
+        "3": "Test mode"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/StateOfChargeStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER StateOfChargeStatus value: Percent data type"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/StorageModeStatusType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "DER StorageModeStatus value:\n0 \u2013 storage charging\n1 \u2013 storage discharging\n2 \u2013 storage holding\nAll other values reserved."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AccountBalanceLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of AccountBalance.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveBillingPeriodListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active BillingPeriod instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveCreditRegisterListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active CreditRegister instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveDERControlListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active DERControl instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveEndDeviceControlListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active EndDeviceControl instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveFlowReservationListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active FlowReservation instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveProjectionReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active ProjectionReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveSupplyInterruptionOverrideListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active SupplyInterruptionOverride instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveTargetReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active TargetReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveTextMessageListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active TextMessage instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ActiveTimeTariffIntervalListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of active TimeTariffInterval instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AssociatedDERProgramListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of DERPrograms having the DERControl(s) for this DER.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AssociatedUsagePointLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of UsagePoint.  If present, this is the submeter that monitors the DER output.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingPeriodListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of BillingPeriod instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of BillingReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/BillingReadingSetListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of BillingReadingSet instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ConfigurationLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of Configuration.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ConsumptionTariffIntervalListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of ConsumptionTariffInterval instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CreditRegisterListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of CreditRegister instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CustomerAccountLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of CustomerAccount.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CustomerAccountListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of CustomerAccount instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CustomerAgreementListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of CustomerAgreement instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DemandResponseProgramLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DemandResponseProgram.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DemandResponseProgramListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of DemandResponseProgram instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERAvailabilityLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DERAvailability.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DefaultDERControlLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DefaultDERControl. This is the default mode of the DER which MAY be overridden by DERControl events.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERCapabilityLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DERCapability.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERControlListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of DERControl instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERCurveLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DERCurve.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERCurveListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of DERCurve instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DER.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of DER instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERProgramLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DERProgram.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERProgramListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of DERProgram instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERSettingsLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DERSettings.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DERStatusLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DERStatus.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DeviceCapabilityLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DeviceCapability.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DeviceInformationLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DeviceInformation.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DeviceStatusLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of DeviceStatus.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EndDeviceControlListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of EndDeviceControl instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EndDeviceLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of EndDevice.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EndDeviceListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of EndDevice instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FileLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "This element MUST be set to the URI of the most recent File being loaded/activated by the LD. In the case of file status 0, this element MUST be omitted.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FileListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of File instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FileStatusLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of FileStatus.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowReservationRequestListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of FlowReservationRequest instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowReservationResponseListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of FlowReservationResponse instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FunctionSetAssignmentsListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of FunctionSetAssignments instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HistoricalReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of HistoricalReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IPAddrListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of IPAddr instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IPInterfaceListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of IPInterface instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LLInterfaceListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of LLInterface instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LoadShedAvailabilityListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of LoadShedAvailability instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LogEventListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of LogEvent instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MessagingProgramListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of MessagingProgram instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MeterReadingLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of MeterReading.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MeterReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of MeterReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MirrorUsagePointListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of MirrorUsagePoint instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/NeighborListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of Neighbor instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/NotificationListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of Notification instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PowerStatusLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of PowerStatus.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PrepaymentLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of Prepayment.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PrepaymentListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of Prepayment instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PrepayOperationStatusLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of PrepayOperationStatus.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PriceResponseCfgListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of PriceResponseCfg instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ProjectionReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of ProjectionReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RateComponentLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of RateComponent.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RateComponentListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of RateComponent instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A Link to a Reading.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of Reading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingSetListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of ReadingSet instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingTypeLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of ReadingType.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RegistrationLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of Registration.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ResponseListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of Response instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ResponseSetListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of ResponseSet instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RPLInstanceListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of RPLInterface instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RPLSourceRoutesListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of RPLSourceRoutes instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SelfDeviceLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of SelfDevice.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ServiceSupplierLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of ServiceSupplier.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SubscriptionListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of Subscription instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SupplyInterruptionOverrideListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of SupplyInterruptionOverride instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SupportedLocaleListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of SupportedLocale instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TargetReadingListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of TargetReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TariffProfileLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of TariffProfile.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TariffProfileListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of TariffProfile instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TextMessageListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of TextMessage instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TimeLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of Time.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TimeTariffIntervalListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of TimeTariffInterval instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UsagePointLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to an instance of UsagePoint.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UsagePointListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "SHALL contain a Link to a List of UsagePoint instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ListLink"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "This is a root class to provide common naming attributes for all classes needing naming attributes",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Link",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Links provide a reference, via URI, to another resource."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/List",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Container to hold a collection of object instances or references. See Design Pattern section for additional details.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ListLink",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "ListLinks provide a reference, via URI, to a List.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Link"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Resource",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A resource is an addressable unit of information, either a collection (List) or instance of an object (identifiedObject, or simply, Resource)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RespondableIdentifiedObject",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An IdentifiedObject to which a Response can be requested.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/RespondableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RespondableResource",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A Resource to which a Response can be requested.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RespondableSubscribableIdentifiedObject",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An IdentifiedObject to which a Response can be requested.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/RespondableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SubscribableIdentifiedObject",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An IdentifiedObject to which a Subscription can be requested.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SubscribableList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List to which a Subscription can be requested.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/SubscribableResource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SubscribableResource",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A Resource to which a Subscription can be requested.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Error",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Contains information about the nature of an error if a request could not be completed successfully."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Event",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An Event indicates information that applies to a particular period of time. Events SHALL be executed relative to the time of the server, as described in the Time function set section 11.1.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/RespondableSubscribableIdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/EventStatus",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Current status information relevant to a specific object. The Status object is used to indicate the current status of an Event. Devices can read the containing resource (e.g. TextMessage) to get the most up to date status of the event.  Devices can also subscribe to a specific resource instance to get updates when any of its attributes change, including the Status object."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RandomizableEvent",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An Event that can indicate time ranges over which the start time and duration SHALL be randomized.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Event"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/AccumulationBehaviourType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n\n3 = Cumulative\nThe sum of the previous billing period values. Note: \u201cCumulative\u201d is commonly used in conjunction with \u201cdemand.\u201d Each demand reset causes the maximum demand value for the present billing period (since the last demand reset) to accumulate as an accumulative total of all maximum demands. So instead of \u201czeroing\u201d the demand register, a demand reset has the affect of adding the present maximum demand to this accumulating total.\n\n4 = DeltaData\nThe difference between the value at the end of the prescribed interval and the beginning of the interval. This is used for incremental interval data. \nNote: One common application would be for load profile data, another use might be to report the number of events within an interval (such as the number of equipment energizations within the specified period of time.)\n\n6 = Indicating\nAs if a needle is swung out on the meter face to a value to indicate the current value. (Note: An \u201cindicating\u201d value is typically measured over hundreds of milliseconds or greater, or may imply a \u201cpusher\u201d mechanism to capture a value. Compare this to \u201cinstantaneous\u201d which is measured over a shorter period of time.) \n\n9 = Summation\nA form of accumulation which is selective with respect to time. \nNote : \u201cSummation\u201d could be considered a specialization of \u201cBulk Quantity\u201d according to the rules of inheritance where \u201cSummation\u201d selectively accumulates pulses over a timing pattern, and \u201cBulkQuantity\u201d accumulates pulses all of the time.\n\n12 = Instantaneous\nTypically measured over the fastest period of time allowed by the definition of the metric (usually milliseconds or tens of milliseconds.) (Note: \u201cInstantaneous\u201d was moved to attribute #3 in 61968-9Ed2 from attribute #1 in 61968-9Ed1.)\n\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "3": "Cumulative",
+        "4": "DeltaData",
+        "6": "Indicating",
+        "9": "Summation",
+        "12": "Instantaneous"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ApplianceLoadReductionType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 - Delay Appliance Load\nParameter requesting the appliance to respond by providing a moderate load reduction for the duration of a delay period.  Typically referring to a \u201cnon-emergency\u201d event in which appliances can continue operating if already in a load consuming period.\n\n1 - Temporary Appliance Load Reduction\nParameter requesting the appliance to respond by providing an aggressive load reduction for a short time period.  Typically referring to an \u201cemergency/spinning reserve\u201d event in which an appliance should start shedding load if currently in a load consuming period. \n\n* Full definition of how appliances react when receiving each parameter is document in the EPA document - ENERGY STAR\u00ae Program Requirements, Product Specification for Residential Refrigerators and Freezers, Eligibility Criteria 5, Draft 2 Version 5.0.\n\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Delay Appliance Load",
+        "1": "Temporary Appliance Load Reduction"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CommodityType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n1 = Electricity secondary metered value (a premises meter is typically on the low voltage, or secondary, side of a service transformer)\n2 = Electricity primary metered value (measured on the high voltage, or primary, side of the service transformer)\n4 = Air\n7 = NaturalGas\n8 = Propane\n9 = PotableWater\n10 = Steam\n11 = WasteWater\n12 = HeatingFluid\n13 = CoolingFluid\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "1": "Electricity secondary metered value (a premises meter is typically on the low voltage, or secondary, side of a service transformer)",
+        "2": "Electricity primary metered value (measured on the high voltage, or primary, side of the service transformer)",
+        "4": "Air",
+        "7": "NaturalGas",
+        "8": "Propane",
+        "9": "PotableWater",
+        "10": "Steam",
+        "11": "WasteWater",
+        "12": "HeatingFluid",
+        "13": "CoolingFluid"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ConsumptionBlockType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n1 = Block 1\n2 = Block 2\n3 = Block 3\n4 = Block 4\n5 = Block 5\n6 = Block 6\n7 = Block 7\n8 = Block 8\n9 = Block 9\n10 = Block 10\n11 = Block 11\n12 = Block 12\n13 = Block 13\n14 = Block 14\n15 = Block 15\n16 = Block 16\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "1": "Block 1",
+        "2": "Block 2",
+        "3": "Block 3",
+        "4": "Block 4",
+        "5": "Block 5",
+        "6": "Block 6",
+        "7": "Block 7",
+        "8": "Block 8",
+        "9": "Block 9",
+        "10": "Block 10",
+        "11": "Block 11",
+        "12": "Block 12",
+        "13": "Block 13",
+        "14": "Block 14",
+        "15": "Block 15",
+        "16": "Block 16"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/CurrencyCode",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Follows codes defined in [ISO 4217]. \n0 - Not Applicable (default, if not specified)\n36 - Australian Dollar\n124 - Canadian Dollar\n840 - US Dollar\n978 - Euro\nThis is not a complete list.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt16"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "36": "Australian Dollar",
+        "124": "Canadian Dollar",
+        "840": "US Dollar",
+        "978": "Euro"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DataQualifierType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n2 = Average\n8 = Maximum\n9 = Minimum\n12 = Normal\n29 = Standard Deviation of a Population (typically indicated by a lower case sigma)\n30 = Standard Deviation of a Sample Drawn from a Population (typically indicated by a lower case 's')\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "2": "Average",
+        "8": "Maximum",
+        "9": "Minimum",
+        "12": "Normal",
+        "29": "Standard Deviation of a Population (typically indicated by a lower case sigma)",
+        "30": "Standard Deviation of a Sample Drawn from a Population (typically indicated by a lower case 's')"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DateTimeInterval",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Interval of date and time."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DeviceCategoryType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The Device category types defined.\nBit positions SHALL be defined as follows:\n0 - Programmable Communicating Thermostat\n1 - Strip Heaters\n2 - Baseboard Heaters\n3 - Water Heater\n4 - Pool Pump\n5 - Sauna\n6 - Hot Tub\n7 - Smart Appliance\n8 - Irrigation Pump\n9 - Managed Commercial and Industrial (C&amp;I) Loads\n10 - Simple Misc. (Residential On/Off) Loads\n11 - Exterior Lighting\n12 - Interior Lighting\n13 - Load Control Switch\n14 - Energy Management System\n15 - Smart Energy Module\n16 - Electric Vehicle\n17 - EVSE\n18 - Virtual or Mixed DER\n19 - Reciprocating Engine\n20 - Fuel Cell\n21 - Photovoltaic System\n22 - Combined Heat and Power\n23 - Combined PV and Storage\n24 - Other Generation System\n25 - Other Storage System\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/HexBinary32"
+      },
+      "@enum": {
+        "0": "Programmable Communicating Thermostat",
+        "1": "Strip Heaters",
+        "2": "Baseboard Heaters",
+        "3": "Water Heater",
+        "4": "Pool Pump",
+        "5": "Sauna",
+        "6": "Hot Tub",
+        "7": "Smart Appliance",
+        "8": "Irrigation Pump",
+        "9": "Managed Commercial and Industrial (C&amp;I) Loads",
+        "10": "Simple Misc. (Residential On/Off) Loads",
+        "11": "Exterior Lighting",
+        "12": "Interior Lighting",
+        "13": "Load Control Switch",
+        "14": "Energy Management System",
+        "15": "Smart Energy Module",
+        "16": "Electric Vehicle",
+        "17": "EVSE",
+        "18": "Virtual or Mixed DER",
+        "19": "Reciprocating Engine",
+        "20": "Fuel Cell",
+        "21": "Photovoltaic System",
+        "22": "Combined Heat and Power",
+        "23": "Combined PV and Storage",
+        "24": "Other Generation System",
+        "25": "Other Storage System"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/DstRuleType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Bit map encoded rule from which is calculated the start or end time, within the current year, to which daylight savings time offset must be applied. \n\nThe rule encoding:\nBits  0 - 11: seconds 0 - 3599\nBits 12 - 16: hours 0 - 23\nBits 17 - 19: day of the week 0 = not applicable, 1 - 7 (Monday = 1)\nBits 20 - 24: day of the month 0 = not applicable, 1 - 31\nBits 25 - 27: operator  (detailed below)\nBits 28 - 31: month 1 - 12\n\nRule value of 0xFFFFFFFF means rule processing/DST correction is disabled.\n\nThe operators:\n\n0: DST starts/ends on the Day of the Month\n1: DST starts/ends on the Day of the Week that is on or after the Day of the Month\n2: DST starts/ends on the first occurrence of the Day of the Week in a month\n3: DST starts/ends on the second occurrence of the Day of the Week in a month\n4: DST starts/ends on the third occurrence of the Day of the Week in a month\n5: DST starts/ends on the forth occurrence of the Day of the Week in a month\n6: DST starts/ends on the fifth occurrence of the Day of the Week in a month\n7: DST starts/ends on the last occurrence of the Day of the Week in a month\n\nAn example: DST starts on third Friday in March at 1:45 AM.  The rule...\nSeconds: 2700\nHours: 1\nDay of Week: 5\nDay of Month: 0\nOperator: 4\nMonth: 3",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/HexBinary32"
+      },
+      "@enum": {
+        "0": "DST starts/ends on the Day of the Month",
+        "1": "DST starts/ends on the Day of the Week that is on or after the Day of the Month",
+        "2": "DST starts/ends on the first occurrence of the Day of the Week in a month",
+        "3": "DST starts/ends on the second occurrence of the Day of the Week in a month",
+        "4": "DST starts/ends on the third occurrence of the Day of the Week in a month",
+        "5": "DST starts/ends on the forth occurrence of the Day of the Week in a month",
+        "6": "DST starts/ends on the fifth occurrence of the Day of the Week in a month",
+        "7": "DST starts/ends on the last occurrence of the Day of the Week in a month"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/FlowDirectionType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n1 = Forward (delivered to customer)\n19 = Reverse (received from customer)\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "1": "Forward (delivered to customer)",
+        "19": "Reverse (received from customer)"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/GPSLocationType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies a GPS location, expressed in WGS 84 coordinates."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/KindType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n3 = Currency\n8 = Demand\n12 = Energy\n37 = Power\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "3": "Currency",
+        "8": "Demand",
+        "12": "Energy",
+        "37": "Power"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/LocaleType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "[RFC 4646] identifier of a language-region",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/String42"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/mRIDType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A master resource identifier. The IANA PEN [PEN] provider ID SHALL be specified in bits 0-31, the least-significant bits, and objects created by that provider SHALL be assigned unique IDs with the remaining 96 bits. \n0xFFFFFFFFFFFFFFFFFFFFFFFF[XXXXXXXX], where [XXXXXXXX] is the PEN, is reserved for a object that is being created (e.g., a ReadingSet for the current time that is still accumulating). \nExcept for this special reserved identifier, each modification of an object (resource) representation MUST have a different \"version\".",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/HexBinary128"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/OneHourRangeType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A signed time offset, typically applied to a Time value, expressed in seconds, with range -3600 to 3600.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Int16"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PENType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "IANA Private Enterprise Number [PEN].",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt32"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PerCent",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Used for percentages, specified in hundredths of a percent, 0 - 10000. (10000 = 100%)",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt16"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PhaseCode",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n32 = Phase C (and S2)\n33 = Phase CN (and S2N)\n40 = Phase CA\n64 = Phase B\n65 = Phase BN\n66 = Phase BC\n128 = Phase A (and S1)\n129 = Phase AN (and S1N)\n132 = Phase AB\n224 = Phase ABC\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "32": "Phase C (and S2)",
+        "33": "Phase CN (and S2N)",
+        "40": "Phase CA",
+        "64": "Phase B",
+        "65": "Phase BN",
+        "66": "Phase BC",
+        "128": "Phase A (and S1)",
+        "129": "Phase AN (and S1N)",
+        "132": "Phase AB",
+        "224": "Phase ABC"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PINType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "6 digit unsigned decimal integer (0 - 999999). \n(Note that this only requires 20 bits, if it can be allocated.)",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt32"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PowerOfTenMultiplierType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "-9 = nano=x10^-9\n-6 = micro=x10^-6\n-3 = milli=x10^-3\n0 = none=x1 (default, if not specified)\n1 = deca=x10\n2 = hecto=x100\n3 = kilo=x1000\n6 = Mega=x10^6\n9 = Giga=x10^9\nThis is not a complete list. Any integer between -9 and 9 SHALL be supported, indicating the power of ten multiplier for the units.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Int8"
+      },
+      "@enum": {
+        "0": "none=x1",
+        "1": "deca=x10",
+        "2": "hecto=x100",
+        "3": "kilo=x1000",
+        "6": "Mega=x10^6",
+        "9": "Giga=x10^9"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/PrimacyType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Values possible for indication of \"Primary\" provider: \n0: In home energy management system\n1: Contracted premises service provider\n2: Non-contractual service provider\n3 - 64: Reserved\n65 - 191: User-defined\n192 - 255: Reserved\n\nLower numbers indicate higher priority.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "In home energy management system",
+        "1": "Contracted premises service provider",
+        "2": "Non-contractual service provider"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RealEnergy",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Real electrical energy"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/RoleFlagsType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specifies the roles that apply to a usage point.\nBit 0 - isMirror - SHALL be set if the server is not the measurement device\nBit 1 - isPremisesAggregationPoint - SHALL be set if the UsagePoint is the point of delivery for a premises\nBit 2 - isPEV - SHALL be set if the usage applies to an electric vehicle\nBit 3 - isDER - SHALL be set if the usage applies to a distributed energy resource, capable of delivering power to the grid.\nBit 4 - isRevenueQuality - SHALL be set if usage was measured by a device certified as revenue quality\nBit 5 - isDC - SHALL be set if the usage point measures direct current \nBit 6 - isSubmeter - SHALL be set if the usage point is not a premises aggregation point\nBit 7-15 - Reserved",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/HexBinary16"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ServiceKind",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Service kind\n0 - electricity\n1 - gas\n2 - water\n3 - time\n4 - pressure\n5 - heat\n6 - cooling\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "electricity",
+        "1": "gas",
+        "2": "water",
+        "3": "time",
+        "4": "pressure",
+        "5": "heat",
+        "6": "cooling"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SFDIType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unsigned integer, max inclusive 687194767359, which is 2^36-1 (68719476735), with added check digit. See Section 8.3.2 for check digit calculation.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt40"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SignedPerCent",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Used for signed percentages, specified in hundredths of a percent, -10000 - 10000. (10000 = 100%)",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Int16"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SignedRealEnergy",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Real electrical energy, signed."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TimeOffsetType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A signed time offset, typically applied to a Time value, expressed in seconds.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Int32"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TimeType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Time is a signed 64 bit value representing the number of seconds since 0 hours, 0 minutes, 0 seconds, on the 1st of January, 1970, in UTC, not counting leap seconds.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Int64"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/TOUType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "0 = Not Applicable (default, if not specified)\n1 = TOU A\n2 = TOU B\n3 = TOU C\n4 = TOU D\n5 = TOU E\n6 = TOU F\n7 = TOU G\n8 = TOU H\n9 = TOU I\n10 = TOU J\n11 = TOU K\n12 = TOU L\n13 = TOU M\n14 = TOU N\n15 = TOU O\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "1": "TOU A",
+        "2": "TOU B",
+        "3": "TOU C",
+        "4": "TOU D",
+        "5": "TOU E",
+        "6": "TOU F",
+        "7": "TOU G",
+        "8": "TOU H",
+        "9": "TOU I",
+        "10": "TOU J",
+        "11": "TOU K",
+        "12": "TOU L",
+        "13": "TOU M",
+        "14": "TOU N",
+        "15": "TOU O"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UnitType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The unit types defined for end device control target reductions.\n0 - kWh \n1 - kW  \n2 - Watts \n3 - Cubic Meters \n4 - Cubic Feet \n5 - US Gallons \n6 - Imperial Gallons \n7 - BTUs \n8 - Liters \n9 - kPA (gauge) \n10 - kPA (absolute)  \n11 - Mega Joule \n12 - Unitless\nAll other values reserved.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "kWh",
+        "1": "kW",
+        "2": "Watts",
+        "3": "Cubic Meters",
+        "4": "Cubic Feet",
+        "5": "US Gallons",
+        "6": "Imperial Gallons",
+        "7": "BTUs",
+        "8": "Liters",
+        "9": "kPA (gauge)",
+        "10": "kPA (absolute)",
+        "11": "Mega Joule",
+        "12": "Unitless"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UnitValueType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Type for specification of a specific value, with units and power of ten multiplier."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UomType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The following values are recommended values sourced from the unit of measure enumeration in IEC 61968-9 [61968]. Other values from the unit of measure enumeration in IEC 61968-9 [61968] MAY be used.\n0 = Not Applicable (default, if not specified)\n5 = A (Current in Amperes (RMS))\n6 = Kelvin (Temperature)\n23 = Degrees Celsius (Relative temperature)\n29 = Voltage\n31 = J (Energy joule)\n33 = Hz (Frequency)\n38 =W (Real power in Watts)\n42 = m3 (Cubic Meter)\n61 = VA (Apparent power)\n63 = var (Reactive power)\n65 = CosTheta (Displacement Power Factor)\n67 = V\u00b2 (Volts squared)\n69 = A\u00b2 (Amp squared)\n71 = VAh (Apparent energy)\n72 = Wh (Real energy in Watt-hours)\n73 = varh (Reactive energy)\n106 = Ah (Ampere-hours / Available Charge)\n119 = ft3 (Cubic Feet)\n122 = ft3/h (Cubic Feet per Hour)\n125 = m3/h (Cubic Meter per Hour)\n128 = US gl (US Gallons)\n129 = US gl/h (US Gallons per Hour)\n130 = IMP gl (Imperial Gallons)\n131 = IMP gl/h (Imperial Gallons per Hour)\n132 = BTU\n133 = BTU/h\n134 = Liter\n137 = L/h (Liters per Hour)\n140 = PA(gauge)\n155 = PA(absolute)\n169 = Therm",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt8"
+      },
+      "@enum": {
+        "0": "Not Applicable",
+        "5": "A (Current in Amperes (RMS))",
+        "6": "Kelvin (Temperature)",
+        "23": "Degrees Celsius (Relative temperature)",
+        "29": "Voltage",
+        "31": "J (Energy joule)",
+        "33": "Hz (Frequency)",
+        "38": "W (Real power in Watts)",
+        "42": "m3 (Cubic Meter)",
+        "61": "VA (Apparent power)",
+        "63": "var (Reactive power)",
+        "65": "CosTheta (Displacement Power Factor)",
+        "67": "V\u00b2 (Volts squared)",
+        "69": "A\u00b2 (Amp squared)",
+        "71": "VAh (Apparent energy)",
+        "72": "Wh (Real energy in Watt-hours)",
+        "73": "varh (Reactive energy)",
+        "106": "Ah (Ampere-hours / Available Charge)",
+        "119": "ft3 (Cubic Feet)",
+        "122": "ft3/h (Cubic Feet per Hour)",
+        "125": "m3/h (Cubic Meter per Hour)",
+        "128": "US gl (US Gallons)",
+        "129": "US gl/h (US Gallons per Hour)",
+        "130": "IMP gl (Imperial Gallons)",
+        "131": "IMP gl/h (Imperial Gallons per Hour)",
+        "132": "BTU",
+        "133": "BTU/h",
+        "134": "Liter",
+        "137": "L/h (Liters per Hour)",
+        "140": "PA(gauge)",
+        "155": "PA(absolute)",
+        "169": "Therm"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/VersionType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Version SHALL indicate a distinct identifier for each revision of an IdentifiedObject. If not specified, a default version of \"0\" (initial version) SHALL be assumed. Upon modification of any IdentifiedObject, the mRID SHALL remain the same, but the version SHALL be incremented. Servers MAY NOT modify objects that they did not create, unless they were notified of the change from the entity controlling the object's PEN.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UInt16"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MirrorMeterReading",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Mimic of MeterReading used for managing mirrors.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/MeterReadingBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MirrorMeterReadingList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List of MirrorMeterReading instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MeterReadingBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A container for associating ReadingType, Readings and ReadingSets.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MirrorReadingSet",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A set of Readings of the ReadingType indicated by the parent MeterReading.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/ReadingSetBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MirrorUsagePoint",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A parallel to UsagePoint to support mirroring",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/UsagePointBase"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/MirrorUsagePointList",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A List of MirrorUsagePoint instances.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/List"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Specific value measured by a meter or other asset. ReadingBase is abstract, used to define the elements common to Reading and IntervalReading.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/Resource"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/ReadingSetBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A set of Readings of the ReadingType indicated by the parent MeterReading. ReadingBase is abstract, used to define the elements common to ReadingSet and IntervalBlock.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UsagePointBase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Logical point on a network at which consumption or production is either physically measured (e.g. metered) or estimated (e.g. unmetered street lights). A container for associating ReadingType, Readings and ReadingSets.",
+      "rdfs:subClassOf": {
+        "@id": "https://schemas.ieee.org/2030.5/IdentifiedObject"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/SubscribableType",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The subscribable values.\n0 - Resource does not support subscriptions\n1 - Resource supports non-conditional subscriptions\n2 - Resource supports conditional subscriptions\n3 - Resource supports both conditional and non-conditional subscriptions\nAll other values reserved.",
+      "@enum": {
+        "0": "Resource does not support subscriptions",
+        "1": "Resource supports non-conditional subscriptions",
+        "2": "Resource supports conditional subscriptions",
+        "3": "Resource supports both conditional and non-conditional subscriptions"
+      }
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HexBinary8",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An 8-bit field encoded as a hex string (2 hex characters). Where applicable, bit 0, or the least significant bit, goes on the right. Note that hexBinary requires pairs of hex characters, so an odd number of characters requires a leading \"0\"."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HexBinary16",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A 16-bit field encoded as a hex string (4 hex characters max). Where applicable, bit 0, or the least significant bit, goes on the right. Note that hexBinary requires pairs of hex characters, so an odd number of characters requires a leading \"0\"."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HexBinary32",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A 32-bit field encoded as a hex string (8 hex characters max). Where applicable, bit 0, or the least significant bit, goes on the right. Note that hexBinary requires pairs of hex characters, so an odd number of characters requires a leading \"0\"."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HexBinary48",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A 48-bit field encoded as a hex string (12 hex characters max). Where applicable, bit 0, or the least significant bit, goes on the right. Note that hexBinary requires pairs of hex characters, so an odd number of characters requires a leading \"0\"."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HexBinary64",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A 64-bit field encoded as a hex string (16 hex characters max). Where applicable, bit 0, or the least significant bit, goes on the right. Note that hexBinary requires pairs of hex characters, so an odd number of characters requires a leading \"0\"."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HexBinary128",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A 128-bit field encoded as a hex string (32 hex characters max). Where applicable, bit 0, or the least significant bit, goes on the right. Note that hexBinary requires pairs of hex characters, so an odd number of characters requires a leading \"0\"."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/HexBinary160",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A 160-bit field encoded as a hex string (40 hex characters max). Where applicable, bit 0, or the least significant bit, goes on the right. Note that hexBinary requires pairs of hex characters, so an odd number of characters requires a leading \"0\"."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/String6",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Character string of max length 6. In order to limit internal storage, implementations SHALL reduce the length of strings using multi-byte characters so that the string may be stored using \"maxLength\" octets in the given encoding."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/String16",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Character string of max length 16. In order to limit internal storage, implementations SHALL reduce the length of strings using multi-byte characters so that the string may be stored using \"maxLength\" octets in the given encoding."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/String20",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Character string of max length 20. In order to limit internal storage, implementations SHALL reduce the length of strings using multi-byte characters so that the string may be stored using \"maxLength\" octets in the given encoding."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/String32",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Character string of max length 32. In order to limit internal storage, implementations SHALL reduce the length of strings using multi-byte characters so that the string may be stored using \"maxLength\" octets in the given encoding."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/String42",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Character string of max length 42. In order to limit internal storage, implementations SHALL reduce the length of strings using multi-byte characters so that the string may be stored using \"maxLength\" octets in the given encoding."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/String192",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Character string of max length 192. For all string types, in order to limit internal storage, implementations SHALL reduce the length of strings using multi-byte characters so that the string may be stored using \"maxLength\" octets in the given encoding."
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UInt8",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unsigned integer, max inclusive 255 (2^8-1)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UInt16",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unsigned integer, max inclusive 65535 (2^16-1)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UInt32",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unsigned integer, max inclusive 4294967295 (2^32-1)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UInt40",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unsigned integer, max inclusive 1099511627775 (2^40-1)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UInt48",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unsigned integer, max inclusive 281474976710655 (2^48-1)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/UInt64",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Unsigned integer, max inclusive 18446744073709551615 (2^64-1)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Int8",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Signed integer, min -128 max +127"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Int16",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Signed integer, min -32768 max +32767"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Int32",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Signed integer, max inclusive 2147483647 (2^31), min inclusive -2147483647 (same as xs:int)"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Int48",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Signed integer, max inclusive 140737488355328 (2^47), min inclusive -140737488355328"
+    },
+    {
+      "@id": "https://schemas.ieee.org/2030.5/Int64",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Signed integer, max inclusive 9223372036854775807 (2^63), min inclusive -9223372036854775808 (same as xs:long)"
+    }
+  ]
+}
